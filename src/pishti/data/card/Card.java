@@ -12,7 +12,7 @@ public class Card {
     public Card(int number) {
         this.number = number;
         this.isFaceUp = false;
-        switch (this.number/13) {
+        switch ((this.number-1)/13) {
             case 0: this.suit = Suit.SPADES; break;
             case 1: this.suit = Suit.HEARTS; break;
             case 2: this.suit = Suit.DIAMONDS; break;
@@ -20,7 +20,7 @@ public class Card {
             default: System.err.println("Invalid Card number initialization. Must be 1-52.");
         }
         for (Rank rank: Rank.values())
-            if (rank.getNumber() == this.number%13)
+            if (rank.getNumber() == this.number%13+1)
                 this.rank = rank;
     }
 
