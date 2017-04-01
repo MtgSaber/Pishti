@@ -2,14 +2,10 @@ package pishti.testing;
 
 import javafx.application.Application;
 import javafx.geometry.Point2D;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import pishti.data.card.Card;
@@ -17,9 +13,6 @@ import pishti.gui.images.CardImg;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Random;
 
 /**
  * Author: Andrew Arnold (3/29/2017)

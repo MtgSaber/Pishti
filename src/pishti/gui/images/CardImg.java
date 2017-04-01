@@ -13,7 +13,8 @@ public class CardImg extends ImageView {
     private Card representee;
 
     public CardImg(Card card) {
-        super(new File("assets/card/" + card.getNumber() + ".png").toURI().toString());
+        super(new File("assets/card/" + card.getNumber() + ".png")
+                .toURI().toString());
         representee = card;
     }
 
