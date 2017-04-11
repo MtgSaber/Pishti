@@ -1,6 +1,5 @@
 package pishti.gui.images;
 
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import pishti.data.card.Card;
 
