@@ -11,7 +11,7 @@ public enum Rank {
     FIVE    (5, "Five"),
     SIX     (6, "Six"),
     SEVEN   (7, "Seven"),
-    Eight   (8, "Eight"),
+    EIGHT   (8, "Eight"),
     NINE    (9, "Nine"),
     TEN     (10, "Ten"),
     JACK    (11, "Jack"),

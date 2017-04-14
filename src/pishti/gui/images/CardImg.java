@@ -7,6 +7,8 @@ import java.io.File;
 
 /**
  * Author: Andrew Arnold (3/28/2017)
+ *
+ * wraps a Card in an image for easier upper-level coding.
  */
 public class CardImg extends ImageView {
     private Card representee;

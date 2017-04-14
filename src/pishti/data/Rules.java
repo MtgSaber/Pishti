@@ -1,10 +1,11 @@
 package pishti.data;
 
 import pishti.data.card.Card;
-import pishti.data.card.Pisti;
 
 /**
  * Author: Andrew Arnold (4/10/2017)
+ *
+ * holds constants and methods for rules calculation (scoring, legality, etc.)
  */
 public class Rules {
     public static final int HAND_LIMIT = 4;
@@ -24,8 +25,6 @@ public class Rules {
                 gameData.getCapturedUser(): gameData.getCapturedAI()) {
             if (captured instanceof Card) {
                 // TODO: handle card scoring.
-            } else if (captured instanceof Pisti) {
-                // TODO: handle pisti scoring.
             }
         }
         return score;
