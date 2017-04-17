@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -15,42 +16,55 @@ import javafx.stage.Stage;
  * Serves as a resource wrapper for more organized upper-level code.
  */
 public class GameNodes {
-    private Stage primaryStage;
     private BorderPane pnPrimary;
-    private StackPane captured;
-    private HBox hand;
-    private BorderPane deck;
-    private BorderPane discard;
-    private HBox center;
+    private HBox handPlayer;
+    private HBox handAI;
+    private VBox capturedPlayer;
+    private VBox capturedAI;
+    private VBox deck;
+    private VBox discard;
 
     private Button btDeal;
-    private Text capturedCount;
-    private Text deckCount;
-    private Text discardCount;
+    private Text capturedPlayerCnt;
+    private Text capturedAICnt;
+    private Text capturedPlayerVal;
+    private Text capturedAIVal;
+    private Text deckCnt;
+    private Text discardCnt;
+    private Text discardVal;
 
-    public GameNodes(Stage primaryStage) {
+    public GameNodes() {
         pnPrimary = new BorderPane();
-        captured = new StackPane();
-        hand = new HBox(5);
-        deck = new BorderPane();
-        discard = new BorderPane();
-        center = new HBox(10, deck, discard, captured);
+        capturedPlayer = new VBox(5);
+        capturedAI = new VBox(5);
+        handPlayer = new HBox(5);
+        handAI = new HBox(5);
+        deck = new VBox(5);
+        discard = new VBox(5);
 
         btDeal = new Button("Draw");
-        capturedCount = new Text();
-        deckCount = new Text();
-        discardCount = new Text();
+        capturedPlayerCnt = new Text("0");
+        capturedAICnt = new Text("0");
+        capturedPlayerVal = new Text("0");
+        capturedAIVal = new Text("0");
+        deckCnt = new Text("48");
+        discardCnt = new Text("4");
+        discardVal = new Text("0");
     }
 
-    public Stage getPrimaryStage() { return primaryStage; }
-    public BorderPane getPnPrimary() { return pnPrimary; }
-    public StackPane getCaptured() { return captured; }
-    public HBox getHand() { return hand; }
-    public BorderPane getDeck() { return deck; }
-    public BorderPane getDiscard() { return discard; }
-    public HBox getCenter() { return center; }
-    public Button getBtDeal() { return btDeal; }
-    public Text getCapturedCount() { return capturedCount; }
-    public Text getDeckCount() { return deckCount; }
-    public Text getDiscardCount() { return discardCount; }
+    public BorderPane getPnPrimary() {return pnPrimary;}
+    public HBox getHandPlayer() {return handPlayer;}
+    public HBox getHandAI() {return handAI;}
+    public VBox getCapturedPlayer() {return capturedPlayer;}
+    public VBox getCapturedAI() {return capturedAI;}
+    public VBox getDeck() {return deck;}
+    public VBox getDiscard() {return discard;}
+    public Button getBtDeal() {return btDeal;}
+    public Text getCapturedPlayerCnt() {return capturedPlayerCnt;}
+    public Text getCapturedAICnt() {return capturedAICnt;}
+    public Text getCapturedPlayerVal() {return capturedPlayerVal;}
+    public Text getCapturedAIVal() {return capturedAIVal;}
+    public Text getDeckCnt() {return deckCnt;}
+    public Text getDiscardCnt() {return discardCnt;}
+    public Text getDiscardVal() {return discardVal;}
 }

@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="602dfc57-52da-4600-b6f8-532dbab3da57" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/guiIdeas/UI_Design_1_-MtgSaber-.bak" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/guiIdeas/UI_Design_1_-MtgSaber-.dwg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/guiIdeas/UI_Design_1_-MtgSaber-.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pishti/gui/GameNodes.java" afterPath="$PROJECT_DIR$/src/pishti/gui/GameNodes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pishti/testing/HandDiscardDealTest.java" afterPath="$PROJECT_DIR$/src/pishti/testing/HandDiscardDealTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,23 +33,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HandDiscardDealTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HandDiscardDealTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pishti/testing/HandDiscardDealTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+            <state relative-caret-position="273">
+              <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#564#565#0" expanded="true" />
+                <element signature="e#640#641#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameNodes.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pishti/data/Data.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameNodes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pishti/gui/GameNodes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="661">
-              <caret line="53" column="52" lean-forward="true" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
+            <state relative-caret-position="840">
+              <caret line="40" column="29" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,10 +124,12 @@
     <findStrings>
       <find>player</find>
       <find>util</find>
+      <find>discardCount</find>
     </findStrings>
     <replaceStrings>
       <replace>owner</replace>
       <replace>cards</replace>
+      <replace>discardCnt</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -170,9 +183,9 @@
         <option value="$PROJECT_DIR$/src/pishti/data/card/Pisti.java" />
         <option value="$PROJECT_DIR$/src/pishti/data/card/Card.java" />
         <option value="$PROJECT_DIR$/src/pishti/data/card/Rank.java" />
+        <option value="$PROJECT_DIR$/src/pishti/data/Rules.java" />
         <option value="$PROJECT_DIR$/src/pishti/gui/GameNodes.java" />
         <option value="$PROJECT_DIR$/src/pishti/testing/HandDiscardDealTest.java" />
-        <option value="$PROJECT_DIR$/src/pishti/data/Rules.java" />
       </list>
     </option>
   </component>
@@ -198,6 +211,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -380,9 +395,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -860,13 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pishti/data/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pishti/gui/nodes/Hand.java" />
     <entry file="file://$PROJECT_DIR$/src/pishti/data/card/Pisti.java" />
     <entry file="file://$PROJECT_DIR$/src/pishti/data/card/Card.java">
@@ -909,27 +915,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pishti/testing/HandDiscardDealTest.java">
+    <entry file="file://$PROJECT_DIR$/assets/guiIdeas/UI_Design_1_-MtgSaber-.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pishti/data/Data.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        <state relative-caret-position="252">
+          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pishti/gui/GameNodes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="40" column="29" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/guiIdeas/UI_Design_1_-MtgSaber-.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pishti/gui/GameNodes.java">
+    <entry file="file://$PROJECT_DIR$/src/pishti/testing/HandDiscardDealTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="661">
-          <caret line="53" column="52" lean-forward="true" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
+        <state relative-caret-position="273">
+          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#640#641#0" expanded="true" />
           </folding>
         </state>
       </provider>
