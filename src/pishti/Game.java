@@ -4,7 +4,7 @@ import pishti.data.Data;
 import pishti.data.card.Card;
 import pishti.data.card.Rank;
 import pishti.data.card.Suit;
-import pishti.gui.GameNodes;
+import pishti.data.GameNodes;
 import pishti.gui.images.CardImg;
 
 import java.util.ArrayList;

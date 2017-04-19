@@ -1,4 +1,4 @@
-package pishti.gui;
+package pishti.data;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;

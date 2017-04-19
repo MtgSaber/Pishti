@@ -1,14 +1,10 @@
 package pishti.testing;
 
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.application.Application;
-import pishti.gui.GameNodes;
+import pishti.data.GameNodes;
 
 /**
  * Created by ktrocoll on 4/19/2017.

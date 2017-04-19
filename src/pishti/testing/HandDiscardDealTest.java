@@ -3,8 +3,7 @@ package pishti.testing;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import pishti.data.Data;
-import pishti.data.card.Card;
-import pishti.gui.GameNodes;
+import pishti.data.GameNodes;
 import pishti.gui.images.CardImg;
 
 /**
