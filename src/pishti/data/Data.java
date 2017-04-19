@@ -20,6 +20,9 @@ public class Data {
         capturedAI = new ArrayList<>();
         userTurn = true;
         gameActive = true;
+
+        for (int i=1; i<=52; i++)
+            deck.add(new Card(i));
     }
 
     public ArrayList<Card> getDeck() { return deck; }
@@ -45,15 +48,15 @@ public class Data {
     }
 
     public void deckShuffle() {
-        Card[] cards = new Card[deck.size()];
+        Card[] cards = deck.toArray(new Card[deck.size()]);
+        deck = new ArrayList<>();
         Random rng = new Random();
         
-        for (Card card: deck) {
-            int index = rng.nextInt(cards.length);
-            while (cards[index]!=null) { index = rng.nextInt(cards.length); }
-            cards[index] = deck.remove(index);
+        for (int i=0; i<52; i++) {
+            int index = rng.nextInt(52);
+            while (cards[index]==null) { index = rng.nextInt(cards.length); }
+            deck.add(cards[index]);
+            cards[index] = null;
         }
-
-        deck.addAll(Arrays.asList(cards));
     }
 }

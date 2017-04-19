@@ -31,14 +31,6 @@ public class Game {
 
     public void initialize() {
         data.deckShuffle();
-        deal(true);
-        deal(true);
-        deal(true);
-        deal(true);
-        deal(false);
-        deal(false);
-        deal(false);
-        deal(false);
 
         for (int i=0; i<4; i++) {
             Card cardDealt = data.getDeck().remove(data.getDeck().size()-1);
@@ -74,24 +66,10 @@ public class Game {
     /*
      * Deals the top card of the deck either toPlayer, else to AI.
      */
-    public void deal(boolean toPlayer) {
-        // check if deck is empty and whether the hand is below HAND_LIMIT.
-        if (data.getDeck().size()>0
-                && ((toPlayer)? data.getHandUser().size(): data.getHandAI().size())<HAND_LIMIT) {
-
-            Card cardDealt = data.getDeck().remove(data.getDeck().size()-1);
-            if (toPlayer) {
-                cardDealt.setFaceUp(true);
-                data.getHandUser().add(cardDealt);
-                gameNodes.getHandPlayer().getChildren().add(new ImageView(
-                        new File("assets/card/" + cardDealt.getNumber() + ".png").toURI().toString()));
-            } else {
-                cardDealt.setFaceUp(false);
-                data.getHandAI().add(cardDealt);
-                gameNodes.getHandAI().getChildren().add(new ImageView(
-                        new File("assets/card/" + cardDealt.getNumber() + ".png").toURI().toString()));
-            }
-        }
+    public Card draw() {
+        if (data.getDeck().size()>0)
+            return data.getDeck().remove(data.getDeck().size()-1);
+        return null;
     }
 
     /*
@@ -119,6 +97,8 @@ public class Game {
         else
             for (int i=data.getDiscard().size()-1; i>=0; i--)
                 data.getCapturedAI().add(data.getDiscard().remove(i));
+
+        data.getDiscard().add(data.getDeck().remove(data.getDeck().size()-1));
     }
 
     /*
