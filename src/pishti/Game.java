@@ -25,7 +25,7 @@ public class Game {
 
     public Data getdata() { return data; }
     public GameNodes getGameNodes() { return gameNodes; }
-
+a
     public int getScore(boolean player, boolean finalScore) {
         int score = 0;
         for (Card card: player? data.getCapturedUser(): data.getCapturedAI()) {
