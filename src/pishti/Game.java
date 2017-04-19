@@ -18,9 +18,9 @@ public class Game {
     private Data data;
     private GameNodes gameNodes;
 
-    public Game() {
-        data = new Data();
-        gameNodes = new GameNodes();
+    public Game(Data data, GameNodes gameNodes) {
+        this.data = data;
+        this.gameNodes = gameNodes;
     }
 
     public Data getdata() { return data; }
