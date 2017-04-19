@@ -97,3 +97,4 @@ fabric.properties
 out/*
 .idea/workspace.xml
 .idea/uiDesigner.xml
+.idea/misc.xml

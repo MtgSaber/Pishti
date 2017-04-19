@@ -38,6 +38,12 @@ public class Main extends Application {
         if (data.isUserTurn())
             gameNodes.getPrompt().setText("Play a card");
 
-        if ()
+        if (data.getHandUser().size() < 4) {
+            game.deal(true);
+        }
+
+        if (data.getHandAI().size() < 4) {
+            game.deal(false);
+        }
     }
 }
