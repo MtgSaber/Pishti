@@ -30,17 +30,56 @@ public class GuiTest extends Application {
         HBox playReg = new HBox(5);
         VBox playCapInfo = new VBox(5);
 
-        //Adding the Sub-VBoxes to the main HBox
+        //Adding elements
+        //First HBox
+        //Add elements to the nested VBox
+        aiCapInfo.getChildren().add(gameNodes.getCapturedAICnt());
+        aiCapInfo.getChildren().add(gameNodes.getCapturedAIVal());
+        //Add elements to the main HBox
         aiReg.getChildren().add(aiCapInfo);
+        aiReg.getChildren().add(gameNodes.getCapturedAI());
+        aiReg.getChildren().add(gameNodes.getHandAI());
+
+        //Second HBox
+        //Add elements to the nested VBox
+        disInfo.getChildren().add(gameNodes.getDiscardCnt());
+        disInfo.getChildren().add(gameNodes.getDiscardVal());
+        //Add to the main HBox
+        mainReg.getChildren().add(gameNodes.getDeckCnt());
+        mainReg.getChildren().add(gameNodes.getDeck());
+        mainReg.getChildren().add(gameNodes.getDiscard());
         mainReg.getChildren().add(disInfo);
+
+        //Third HBox
+        //Add elements to the nested VBox
+        playCapInfo.getChildren().add(gameNodes.getCapturedPlayerCnt());
+        playCapInfo.getChildren().add(gameNodes.getCapturedPlayerVal());
+        //Add to the main HBox
         playReg.getChildren().add(playCapInfo);
+        playReg.getChildren().add(gameNodes.getCapturedPlayer());
+        playReg.getChildren().add(gameNodes.getHandPlayer());
 
         //Adding all 3 HBoxes to the main VBox
         main.getChildren().add(aiReg);
         main.getChildren().add(mainReg);
         main.getChildren().add(playReg);
 
-        //Add Pane to the stage and show the stage window
+        //Set size
+        //Set the main HBox's to be all equal
+        aiReg.setMinHeight(240);
+        aiReg.setMinWidth(1280);
+        aiCapInfo.setMinWidth(160);
+        mainReg.setMinHeight(240);
+        mainReg.setMinWidth(1280);
+        playReg.setMinHeight(240);
+        playReg.setMinWidth(1280);
+        playCapInfo.setMinWidth(160);
+
+        //Add Pane to the stage and show the stage window, sets the title and size
+        primaryStage.setTitle("Pishti GUI TEST");
+        primaryStage.setResizable(false);
+        primaryStage.setHeight(720);
+        primaryStage.setWidth(1280);
         primaryStage.setScene(new Scene(main));
         primaryStage.show();
     }

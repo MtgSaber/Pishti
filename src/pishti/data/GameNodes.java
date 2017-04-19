@@ -43,6 +43,14 @@ public class GameNodes {
         discardCnt = new Text("0");
         discardVal = new Text("0");
         prompt = new Text("0");
+
+        //Set element size
+        handAI.setMinWidth(800);
+        capturedAI.setFitWidth(320);
+        deck.setFitWidth(320);
+        discard.setFitWidth(320);
+        handPlayer.setMinWidth(800);
+        capturedPlayer.setFitWidth(320);
     }
 
     public HBox getHandPlayer() { return handPlayer; }
