@@ -117,4 +117,31 @@ public class Game {
             for (int i=data.getDiscard().size()-1; i>=0; i--)
                 data.getCapturedAI().add(data.getDiscard().remove(i));
     }
+
+    /*
+     * returns the AI's card choice.
+     */
+    public Card getCard() {
+        int[] priorities = new int[data.getHandAI().size()];
+        int max = 0;
+
+        for (Card card: data.getHandAI()) {
+            if (card.getRank() == data.getDiscard().get(data.getDiscard().size()-1).getRank()) {
+                priorities[data.getHandAI().indexOf(card)] = 3;
+                max = 3;
+            } else if (getScore(data.getDiscard(), false, false) > 3 && card.getRank() == Rank.JACK) {
+                priorities[data.getHandAI().indexOf(card)] = 2;
+                max = max>2? max: 2;
+            } else if (card.getRank() != Rank.JACK) {
+                priorities[data.getHandAI().indexOf(card)] = 1;
+                max = max>1? max: 1;
+            }
+        }
+
+        for (Card card: data.getHandAI())
+            if (priorities[data.getHandAI().indexOf(card)]==max)
+                return card;
+
+        return null;
+    }
 }
