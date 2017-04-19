@@ -35,4 +35,5 @@ public class Card {
     public boolean isPisti() { return this.isPisti; }
 
     public void setFaceUp(boolean isFaceUp) { this.isFaceUp = isFaceUp; }
+    public void setPisti(boolean isPisti) { this.isPisti = isPisti; }
 }

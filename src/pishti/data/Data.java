@@ -8,8 +8,7 @@ import java.util.*;
  * Author: Andrew Arnold (3/31/2017)
  */
 public class Data {
-    private ArrayList<Card> deck, handUser, handAI, discard;
-    private ArrayList<Object> capturedUser, capturedAI;
+    private ArrayList<Card> deck, handUser, handAI, discard, capturedUser, capturedAI;
     private boolean userTurn, gameActive;
 
     public Data() {
@@ -27,8 +26,8 @@ public class Data {
     public ArrayList<Card> getHandUser() { return handUser; }
     public ArrayList<Card> getHandAI() { return handAI; }
     public ArrayList<Card> getDiscard() { return discard; }
-    public ArrayList<Object> getCapturedUser() { return capturedUser; }
-    public ArrayList<Object> getCapturedAI() { return capturedAI; }
+    public ArrayList<Card> getCapturedUser() { return capturedUser; }
+    public ArrayList<Card> getCapturedAI() { return capturedAI; }
     public boolean isUserTurn() { return userTurn; }
     public boolean isGameActive() { return gameActive; }
 

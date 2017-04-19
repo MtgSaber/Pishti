@@ -26,15 +26,5 @@ public class HandDiscardDealTest extends Application {
         gameNodes.getDeckCnt().setText(""+gameData.getDeck().size());
     }
 
-    private void deal(boolean toPlayer) {
-        if (gameData.getDeck().size()>0 && ((toPlayer)? gameData.getHandUser().size(): gameData.getHandAI().size())>0) {
-            Card cardDealt = gameData.getDeck().remove(0);
-            if (toPlayer) {
-                gameData.getHandUser().add(cardDealt);
-                gameNodes.getHandPlayer().getChildren().add(new CardImg(cardDealt));
-            } else {
-                gameData.getHandAI().add(cardDealt);
-            }
-        }
-    }
+
 }

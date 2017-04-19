@@ -52,19 +52,19 @@ public class GameNodes {
         discardVal = new Text("0");
     }
 
-    public BorderPane getPnPrimary() {return pnPrimary;}
-    public HBox getHandPlayer() {return handPlayer;}
-    public HBox getHandAI() {return handAI;}
-    public VBox getCapturedPlayer() {return capturedPlayer;}
-    public VBox getCapturedAI() {return capturedAI;}
-    public VBox getDeck() {return deck;}
-    public VBox getDiscard() {return discard;}
-    public Button getBtDeal() {return btDeal;}
-    public Text getCapturedPlayerCnt() {return capturedPlayerCnt;}
-    public Text getCapturedAICnt() {return capturedAICnt;}
-    public Text getCapturedPlayerVal() {return capturedPlayerVal;}
-    public Text getCapturedAIVal() {return capturedAIVal;}
-    public Text getDeckCnt() {return deckCnt;}
-    public Text getDiscardCnt() {return discardCnt;}
-    public Text getDiscardVal() {return discardVal;}
+    public BorderPane getPnPrimary() { return pnPrimary; }
+    public HBox getHandPlayer() { return handPlayer; }
+    public HBox getHandAI() { return handAI; }
+    public VBox getCapturedPlayer() { return capturedPlayer; }
+    public VBox getCapturedAI() { return capturedAI; }
+    public VBox getDeck() { return deck; }
+    public VBox getDiscard() { return discard; }
+    public Button getBtDeal() { return btDeal; }
+    public Text getCapturedPlayerCnt() { return capturedPlayerCnt; }
+    public Text getCapturedAICnt() { return capturedAICnt; }
+    public Text getCapturedPlayerVal() { return capturedPlayerVal; }
+    public Text getCapturedAIVal() { return capturedAIVal; }
+    public Text getDeckCnt() { return deckCnt; }
+    public Text getDiscardCnt() { return discardCnt; }
+    public Text getDiscardVal() { return discardVal; }
 }
