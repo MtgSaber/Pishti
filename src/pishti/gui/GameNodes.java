@@ -25,6 +25,7 @@ public class GameNodes {
     private Text deckCnt;
     private Text discardCnt;
     private Text discardVal;
+    private Text prompt;
 
     public GameNodes() {
         handPlayer = new HBox(5);
@@ -41,6 +42,7 @@ public class GameNodes {
         deckCnt = new Text("0");
         discardCnt = new Text("0");
         discardVal = new Text("0");
+        prompt = new Text("0");
     }
 
     public HBox getHandPlayer() { return handPlayer; }
@@ -56,4 +58,5 @@ public class GameNodes {
     public Text getDeckCnt() { return deckCnt; }
     public Text getDiscardCnt() { return discardCnt; }
     public Text getDiscardVal() { return discardVal; }
+    public Text getPrompt() { return prompt; }
 }

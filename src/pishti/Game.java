@@ -7,6 +7,8 @@ import pishti.data.card.Suit;
 import pishti.gui.GameNodes;
 import pishti.gui.images.CardImg;
 
+import java.util.ArrayList;
+
 /**
  * Author: Andrew Arnold (4/17/2017)
  *
@@ -25,10 +27,28 @@ public class Game {
 
     public Data getdata() { return data; }
     public GameNodes getGameNodes() { return gameNodes; }
-a
-    public int getScore(boolean player, boolean finalScore) {
+
+    public void initialize() {
+        data.deckShuffle();
+        deal(true);
+        deal(true);
+        deal(true);
+        deal(true);
+        deal(false);
+        deal(false);
+        deal(false);
+        deal(false);
+
+        for (int i=0; i<4; i++) {
+            Card cardDealt = data.getDeck().remove(data.getDeck().size()-1);
+            cardDealt.setFaceUp(false);
+            data.getDiscard().add(cardDealt);
+        }
+    }
+
+    public int getScore(ArrayList<Card> cards, boolean player, boolean finalScore) {
         int score = 0;
-        for (Card card: player? data.getCapturedUser(): data.getCapturedAI()) {
+        for (Card card: cards) {
             if (!card.isFaceUp())
                 card.setFaceUp(finalScore);
             if (card.isFaceUp()) {
