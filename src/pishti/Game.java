@@ -1,12 +1,13 @@
 package pishti;
 
+import javafx.scene.image.ImageView;
 import pishti.data.Data;
 import pishti.data.card.Card;
 import pishti.data.card.Rank;
 import pishti.data.card.Suit;
 import pishti.data.GameNodes;
-import pishti.gui.images.CardImg;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -82,11 +83,13 @@ public class Game {
             if (toPlayer) {
                 cardDealt.setFaceUp(true);
                 data.getHandUser().add(cardDealt);
-                gameNodes.getHandPlayer().getChildren().add(new CardImg(cardDealt));
+                gameNodes.getHandPlayer().getChildren().add(new ImageView(
+                        new File("assets/card/" + cardDealt.getNumber() + ".png").toURI().toString()));
             } else {
                 cardDealt.setFaceUp(false);
                 data.getHandAI().add(cardDealt);
-                gameNodes.getHandAI().getChildren().add(new CardImg(cardDealt));
+                gameNodes.getHandAI().getChildren().add(new ImageView(
+                        new File("assets/card/" + cardDealt.getNumber() + ".png").toURI().toString()));
             }
         }
     }

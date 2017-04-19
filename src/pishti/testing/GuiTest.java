@@ -12,7 +12,6 @@ import pishti.data.GameNodes;
 public class GuiTest extends Application {
     public void start (Stage primaryStage) {
         GameNodes gameNodes = new GameNodes();
-        BorderPane BPane = new BorderPane();
 
         //Declare all the boxes we will use
         //BOXES!
@@ -42,7 +41,7 @@ public class GuiTest extends Application {
         main.getChildren().add(playReg);
 
         //Add Pane to the stage and show the stage window
-        primaryStage.setScene(new Scene(BPane));
+        primaryStage.setScene(new Scene(main));
         primaryStage.show();
     }
 
