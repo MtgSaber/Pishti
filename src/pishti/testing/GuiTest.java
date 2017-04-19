@@ -1,5 +1,6 @@
 package pishti.testing;
 
+import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,6 +9,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.application.Application;
 import pishti.gui.GameNodes;
+
+import java.util.Observable;
 
 /**
  * Created by ktrocoll on 4/19/2017.
@@ -43,6 +46,12 @@ public class GuiTest extends Application {
         VBox playCapPile = new VBox(5);
         VBox playHand = new VBox(5);
 
+        //Setting sizes
+        aiReg.setPrefSize(480, 116);
+        aiHand.setPrefSize(308, 106);
+
+
+
         //Adding all the VBoxes to their respective HBox
         //HBox1
         aiReg.getChildren().add(aiCapVal);
@@ -73,4 +82,5 @@ public class GuiTest extends Application {
         primaryStage.setScene(new Scene(BPane));
         primaryStage.show();
     }
+
 }

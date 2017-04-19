@@ -1,0 +1,5 @@
+All sizes in pixles
+Hands: 308 x 106
+Card Images 82 x 106
+Full width of HBoxes: 480
+cards: 72 x 96
