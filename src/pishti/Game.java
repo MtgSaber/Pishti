@@ -28,6 +28,7 @@ public class Game {
     public Data getdata() { return data; }
     public GameNodes getGameNodes() { return gameNodes; }
 
+<<<<<<< HEAD
     public void initialize() {
         data.deckShuffle();
         deal(true);
@@ -47,6 +48,9 @@ public class Game {
     }
 
     public int getScore(ArrayList<Card> cards, boolean player, boolean finalScore) {
+=======
+    public int getScore(boolean player, boolean finalScore) {
+>>>>>>> origin/master
         int score = 0;
         for (Card card: cards) {
             if (!card.isFaceUp())
