@@ -4,6 +4,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
+import java.io.File;
+
 /**
  * Author: Andrew Arnold (4/13/2017)
  *
@@ -30,9 +32,9 @@ public class GameNodes {
     public GameNodes() {
         handPlayer = new HBox(5);
         handAI = new HBox(5);
-        capturedPlayer = new ImageView();
-        capturedAI = new ImageView();
-        deck = new ImageView();
+        capturedPlayer = new ImageView(new File("assets/card/b2fv.png").toURI().toString());
+        capturedAI = new ImageView(new File("assets/card/b2fv.png").toURI().toString());
+        deck = new ImageView(new File("assets/card/b2fv.png").toURI().toString());
         discard = new ImageView();
 
         capturedPlayerCnt = new Text("0");
@@ -42,15 +44,16 @@ public class GameNodes {
         deckCnt = new Text("0");
         discardCnt = new Text("0");
         discardVal = new Text("0");
-        prompt = new Text("0");
+        prompt = new Text("Play a card by clicking on it!");
 
-        //Set element size
+        /* Set element size
         handAI.setMinWidth(800);
         capturedAI.setFitWidth(320);
         deck.setFitWidth(320);
         discard.setFitWidth(320);
         handPlayer.setMinWidth(800);
         capturedPlayer.setFitWidth(320);
+        */
     }
 
     public HBox getHandPlayer() { return handPlayer; }

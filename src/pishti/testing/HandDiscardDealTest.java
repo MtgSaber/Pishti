@@ -23,6 +23,7 @@ public class HandDiscardDealTest extends Application {
     private GameNodes gameNodes;
     private Data data;
     private Game game;
+    private Stage primaryStage;
 
     private class CardImg extends ImageView {
         private Card representee;
@@ -39,11 +40,10 @@ public class HandDiscardDealTest extends Application {
     }
 
     public void start(Stage primaryStage) {
+        this.primaryStage = primaryStage;
         data = new Data();
         gameNodes = new GameNodes();
         game = new Game(data, gameNodes);
-        game.initialize();
-        maintenanceCycle();
 
         VBox vbAIInfo = new VBox(5, gameNodes.getCapturedAIVal(), gameNodes.getCapturedAICnt());
         VBox vbPlayerInfo = new VBox(5, gameNodes.getCapturedPlayerVal(), gameNodes.getCapturedPlayerCnt());
@@ -54,29 +54,42 @@ public class HandDiscardDealTest extends Application {
         HBox hbCenter = new HBox(5, gameNodes.getDeckCnt(), gameNodes.getDeck(), gameNodes.getDiscard(),
                 vbDiscardInfo);
 
-        VBox main = new VBox(hbAIPane, hbCenter, hbPlayerPane);
+        VBox main = new VBox(hbAIPane, hbCenter, gameNodes.getPrompt(), hbPlayerPane);
 
         initialize();
 
-        cardAction(data.getHandUser().get(0));
+        maintenanceCycle();
 
         primaryStage.setScene(new Scene(main));
         primaryStage.show();
     }
 
-    private void cardAction(Card card) {
-        boolean captured = game.playCard(card);
-        gameNodes.getHandPlayer().getChildren().remove(data.getHandUser().indexOf(card));
-        if (captured)
+    private void cardAction(CardImg card) {
+        System.out.println("Player played "+card.getCard().getRank().getName()
+                +" of "+card.getCard().getSuit().getName()+".");
+        boolean captured = game.playCard(card.getCard());
+        data.getHandUser().remove(card.getCard());
+        gameNodes.getHandPlayer().getChildren().remove(card);
+        card.getCard().setFaceUp(true);
+        gameNodes.getDiscard().setImage(card.getImage());
+        if (captured) {
             game.capture(true);
+            gameNodes.getCapturedPlayer().setImage(card.getImage());
+        }
 
         maintenanceCycle();
 
         Card aiCard = game.getCard();
-        gameNodes.getHandAI().getChildren().remove(0);
+        System.out.println("AI played "+aiCard.getRank().getName() +" of "+aiCard.getSuit().getName()+".");
         captured = game.playCard(aiCard);
-        if (captured)
+        data.getHandAI().remove(aiCard);
+        gameNodes.getHandAI().getChildren().remove(0);
+        aiCard.setFaceUp(true);
+        gameNodes.getDiscard().setImage(new CardImg(aiCard).getImage());
+        if (captured) {
             game.capture(false);
+            gameNodes.getCapturedAI().setImage(new CardImg(aiCard).getImage());
+        }
 
         maintenanceCycle();
     }
@@ -92,7 +105,9 @@ public class HandDiscardDealTest extends Application {
         for (Card card: hand) {
             card.setFaceUp(true);
             data.getHandUser().add(card);
-            gameNodes.getHandPlayer().getChildren().add(new CardImg(card));
+            CardImg cardImg = new CardImg(card);
+            cardImg.setOnMouseClicked(event -> cardAction(cardImg));
+            gameNodes.getHandPlayer().getChildren().add(cardImg);
         }
 
         // deals initial hand to AI
@@ -127,6 +142,7 @@ public class HandDiscardDealTest extends Application {
     }
 
     private void maintenanceCycle() {
+        System.out.println(data.toString());
         gameNodes.getDeckCnt().setText(""+data.getDeck().size());
         gameNodes.getDiscardCnt().setText(""+data.getDiscard().size());
         gameNodes.getCapturedAICnt().setText(""+data.getCapturedAI().size());
@@ -135,21 +151,29 @@ public class HandDiscardDealTest extends Application {
         gameNodes.getCapturedPlayerVal().setText(""+game.getScore(data.getCapturedUser(), true, false));
         gameNodes.getCapturedAIVal().setText(""+game.getScore(data.getCapturedAI(), false, false));
 
-        data.switchTurn();
+        gameNodes.getDiscard().setImage(new CardImg(data.getDiscard().get(data.getDiscard().size()-1)).getImage());
 
-        if (data.isUserTurn())
-            gameNodes.getPrompt().setText("Play a card");
+        if (data.getHandUser().size() == 0) {
+            if (data.getDeck().size() == 0);
+            // TODO: endGame();
 
-        if (data.getHandUser().size() < 4) {
-            Card cardDealt = game.draw();
-            cardDealt.setFaceUp(true);
-            gameNodes.getHandPlayer().getChildren().add(new CardImg(cardDealt));
+            for (int i=1; i<=4; i++) {
+                Card cardDealt = game.draw();
+                cardDealt.setFaceUp(true);
+                data.getHandUser().add(cardDealt);
+                CardImg cardImg1 = new CardImg(cardDealt);
+                cardImg1.setOnMouseClicked(event -> cardAction(cardImg1));
+                gameNodes.getHandPlayer().getChildren().add(cardImg1);
+
+                cardDealt = game.draw();
+                cardDealt.setFaceUp(false);
+                data.getHandAI().add(cardDealt);
+                CardImg cardImg2 = new CardImg(cardDealt);
+                cardImg2.setOnMouseClicked(event -> cardAction(cardImg2));
+                gameNodes.getHandAI().getChildren().add(cardImg2);
+            }
         }
 
-        if (data.getHandAI().size() < 4) {
-            Card cardDealt = game.draw();
-            cardDealt.setFaceUp(false);
-            gameNodes.getHandAI().getChildren().add(new CardImg(cardDealt));
-        }
+        primaryStage.show();
     }
 }

@@ -16,6 +16,7 @@ public class Main extends Application {
     private GameNodes gameNodes;
     private Data data;
     private Game game;
+    private Stage primaryStage;
     private class CardImg extends ImageView {
         private Card representee;
 
@@ -34,8 +35,7 @@ public class Main extends Application {
         data = new Data();
         gameNodes = new GameNodes();
         game = new Game(data, gameNodes);
-        game.initialize();
-        maintenanceCycle();
+        this.primaryStage = primaryStage;
     }
 
     private void cardAction(Card card) {
@@ -66,7 +66,9 @@ public class Main extends Application {
         for (Card card: hand) {
             card.setFaceUp(true);
             data.getHandUser().add(card);
-            gameNodes.getHandPlayer().getChildren().add(new CardImg(card));
+            CardImg cardImg = new CardImg(card);
+            cardImg.setOnMouseClicked(event -> cardAction(card));
+            gameNodes.getHandPlayer().getChildren().add(cardImg);
         }
 
         // deals initial hand to AI
@@ -109,21 +111,19 @@ public class Main extends Application {
         gameNodes.getCapturedPlayerVal().setText(""+game.getScore(data.getCapturedUser(), true, false));
         gameNodes.getCapturedAIVal().setText(""+game.getScore(data.getCapturedAI(), false, false));
 
-        data.switchTurn();
-
         if (data.isUserTurn())
             gameNodes.getPrompt().setText("Play a card");
 
-        if (data.getHandUser().size() < 4) {
-            Card cardDealt = game.draw();
-            cardDealt.setFaceUp(true);
-            gameNodes.getHandPlayer().getChildren().add(new CardImg(cardDealt));
+        if (data.getHandUser().size() == 0) {
+            if (data.getDeck().size() == 0);
+                // TODO: endGame();
+
+            for (int i=1; i<4; i++) {
+                data.getHandUser().add(game.draw());
+                data.getHandAI().add(game.draw());
+            }
         }
 
-        if (data.getHandAI().size() < 4) {
-            Card cardDealt = game.draw();
-            cardDealt.setFaceUp(false);
-            gameNodes.getHandAI().getChildren().add(new CardImg(cardDealt));
-        }
+        primaryStage.show();
     }
 }

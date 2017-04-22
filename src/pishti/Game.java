@@ -29,16 +29,6 @@ public class Game {
     public Data getdata() { return data; }
     public GameNodes getGameNodes() { return gameNodes; }
 
-    public void initialize() {
-        data.deckShuffle();
-
-        for (int i=0; i<4; i++) {
-            Card cardDealt = data.getDeck().remove(data.getDeck().size()-1);
-            cardDealt.setFaceUp(false);
-            data.getDiscard().add(cardDealt);
-        }
-    }
-
     public int getScore(ArrayList<Card> cards, boolean player, boolean finalScore) {
         int score = 0;
         for (Card card: cards) {
@@ -79,7 +69,8 @@ public class Game {
     public boolean playCard(Card card) {
         card.setFaceUp(true);
         data.getDiscard().add(card);
-        return (card.getRank() == data.getDiscard().get(data.getDiscard().size()-2).getRank());
+        return (card.getRank() == data.getDiscard().get(data.getDiscard().size()-2).getRank()
+                || card.getRank() == Rank.JACK);
     }
 
     /*

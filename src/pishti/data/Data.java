@@ -59,4 +59,13 @@ public class Data {
             cards[index] = null;
         }
     }
+
+    public String toString() {
+        return "Data Info:\n\tDeck Size:\t\t"+deck.size()
+                +"\n\tDiscard Size:"+discard.size()
+                +"\n\tPlayer's Hand Size:\t\t"+handUser.size()
+                +"\n\tAI's Hand Size:\t\t"+handAI.size()
+                +"\n\tPlayer's Capture Size:\t\t"+capturedUser.size()
+                +"\n\tAI's Capture Size:\t\t"+capturedAI.size();
+    }
 }
