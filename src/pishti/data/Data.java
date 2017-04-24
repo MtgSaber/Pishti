@@ -5,7 +5,7 @@ import pishti.data.card.Card;
 import java.util.*;
 
 /**
- * Author: Andrew Arnold (3/31/2017)
+ * Author(s): Andrew Arnold, Kevin Tricolli, Zack Jenkins
  */
 public class Data {
     private ArrayList<Card> deck, handUser, handAI, discard, capturedUser, capturedAI;
@@ -21,8 +21,10 @@ public class Data {
         userTurn = true;
         gameActive = true;
 
-        for (int i=1; i<=52; i++)
+        for (int i=1; i<=52; i++) {
+            System.out.print(i);
             deck.add(new Card(i));
+        }
     }
 
     public ArrayList<Card> getDeck() { return deck; }

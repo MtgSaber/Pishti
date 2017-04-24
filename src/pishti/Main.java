@@ -10,7 +10,7 @@ import pishti.data.card.Card;
 import java.io.File;
 
 /**
- * Author: Andrew Arnold (3/28/2017)
+ * Author(s): Andrew Arnold, Kevin Tricolli, Zack Jenkins
  */
 public class Main extends Application {
     private GameNodes gameNodes;

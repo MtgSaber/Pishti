@@ -1,17 +1,15 @@
 package pishti;
 
-import javafx.scene.image.ImageView;
 import pishti.data.Data;
 import pishti.data.card.Card;
 import pishti.data.card.Rank;
 import pishti.data.card.Suit;
 import pishti.data.GameNodes;
 
-import java.io.File;
 import java.util.ArrayList;
 
 /**
- * Author: Andrew Arnold (4/17/2017)
+ * Author(s): Andrew Arnold, Kevin Tricolli, Zack Jenkins
  *
  * A Place for all the game methods.
  */
@@ -69,8 +67,10 @@ public class Game {
     public boolean playCard(Card card) {
         card.setFaceUp(true);
         data.getDiscard().add(card);
-        return (card.getRank() == data.getDiscard().get(data.getDiscard().size()-2).getRank()
-                || card.getRank() == Rank.JACK);
+        if (data.getDiscard().size()>1)
+            return (card.getRank() == data.getDiscard().get(data.getDiscard().size()-2).getRank()
+                        || card.getRank() == Rank.JACK);
+        else return false;
     }
 
     /*
@@ -88,8 +88,6 @@ public class Game {
         else
             for (int i=data.getDiscard().size()-1; i>=0; i--)
                 data.getCapturedAI().add(data.getDiscard().remove(i));
-
-        data.getDiscard().add(data.getDeck().remove(data.getDeck().size()-1));
     }
 
     /*
@@ -100,7 +98,15 @@ public class Game {
         int max = 0;
 
         for (Card card: data.getHandAI()) {
-            if (card.getRank() == data.getDiscard().get(data.getDiscard().size()-1).getRank()) {
+            if (data.getDiscard().size()==0) {
+                if (card.getRank() == Rank.JACK) {
+                    priorities[data.getHandAI().indexOf(card)] = 0;
+                    max = max>0? max: 0;
+                } else {
+                    priorities[data.getHandAI().indexOf(card)] = 1;
+                    max = 1;
+                }
+            }else if (card.getRank() == data.getDiscard().get(data.getDiscard().size()-1).getRank()) {
                 priorities[data.getHandAI().indexOf(card)] = 3;
                 max = 3;
             } else if (getScore(data.getDiscard(), false, false) > 3 && card.getRank() == Rank.JACK) {

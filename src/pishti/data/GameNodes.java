@@ -2,12 +2,13 @@ package pishti.data;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 import java.io.File;
 
 /**
- * Author: Andrew Arnold (4/13/2017)
+ * Author(s): Andrew Arnold, Kevin Tricolli, Zack Jenkins
  *
  * Holds all the nodes in the primary stage of the game application.
  * Serves as a resource wrapper for more organized upper-level code.
@@ -45,15 +46,7 @@ public class GameNodes {
         discardCnt = new Text("0");
         discardVal = new Text("0");
         prompt = new Text("Play a card by clicking on it!");
-
-        /* Set element size
-        handAI.setMinWidth(800);
-        capturedAI.setFitWidth(320);
-        deck.setFitWidth(320);
-        discard.setFitWidth(320);
-        handPlayer.setMinWidth(800);
-        capturedPlayer.setFitWidth(320);
-        */
+        prompt.setStroke(Color.BLUE);
     }
 
     public HBox getHandPlayer() { return handPlayer; }
