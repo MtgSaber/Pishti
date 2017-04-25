@@ -67,7 +67,7 @@ public class Game {
     public boolean playCard(Card card) {
         card.setFaceUp(true);
         data.getDiscard().add(card);
-        if (data.getDiscard().size()>1)
+        if (data.getDiscard().size()>1 && !data.getIsFirstTurn())
             return (card.getRank() == data.getDiscard().get(data.getDiscard().size()-2).getRank()
                         || card.getRank() == Rank.JACK);
         else return false;

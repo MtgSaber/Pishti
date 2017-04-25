@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class Data {
     private ArrayList<Card> deck, handUser, handAI, discard, capturedUser, capturedAI;
-    private boolean userTurn, gameActive;
+    private boolean isFirstTurn;
 
     public Data() {
         deck = new ArrayList<>();
@@ -18,8 +18,7 @@ public class Data {
         discard = new ArrayList<>();
         capturedUser = new ArrayList<>();
         capturedAI = new ArrayList<>();
-        userTurn = true;
-        gameActive = true;
+        isFirstTurn = true;
 
         for (int i=1; i<=52; i++) {
             System.out.print(i);
@@ -33,10 +32,8 @@ public class Data {
     public ArrayList<Card> getDiscard() { return discard; }
     public ArrayList<Card> getCapturedUser() { return capturedUser; }
     public ArrayList<Card> getCapturedAI() { return capturedAI; }
-    public boolean isUserTurn() { return userTurn; }
-    public boolean isGameActive() { return gameActive; }
-
-    public void switchTurn() { userTurn = !userTurn; }
+    public boolean getIsFirstTurn() { return isFirstTurn; }
+    public void firstTurnFinish() { isFirstTurn = false; }
 
     public void reset() {
         deck = new ArrayList<>();
@@ -45,8 +42,6 @@ public class Data {
         discard = new ArrayList<>();
         capturedUser = new ArrayList<>();
         capturedAI = new ArrayList<>();
-        userTurn = true;
-        gameActive = true;
     }
 
     public void deckShuffle() {
